@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #1e4d2b;
+  --color-secondary: #2d6a4f;
+  --color-accent: #d4a373;
+  --color-success: #4caf50;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Outfit', serif;
+}
+
+:root {
+  --text: #1a1a1a;
+  --text-muted: #4b5563;
+  --bg: #ffffff;
+  --bg-subtle: #f9fafb;
+  --border: #e5e7eb;
+  
+  font-family: var(--font-sans);
+  color: var(--text);
+  background: var(--bg);
+  scroll-behavior: smooth;
+}
+
+@layer base {
+  body {
+    @apply antialiased text-gray-900;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+}
+
+@layer components {
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-primary hover:bg-secondary transition-all duration-300;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center px-6 py-3 border border-primary text-base font-medium rounded-md text-primary hover:bg-primary hover:text-white transition-all duration-300;
+  }
+}
+
+/* Custom animations and effects */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.bg-hero-gradient {
+  background: linear-gradient(to bottom, rgba(30, 77, 43, 0.05), rgba(255, 255, 255, 1));
+}
+
