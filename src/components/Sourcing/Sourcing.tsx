@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import farmImg from '../../assets/herbal_farm_landscape.png';
 

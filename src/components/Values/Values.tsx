@@ -1,4 +1,3 @@
-import React from 'react';
 import { ShieldCheck, HeartPulse, Leaf } from 'lucide-react';
 import { motion } from 'framer-motion';
 

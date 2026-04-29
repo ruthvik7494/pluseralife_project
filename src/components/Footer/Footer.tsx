@@ -1,5 +1,3 @@
-import React from 'react';
-import { Mail, Phone, MapPin } from 'lucide-react';
 import logo from '../../assets/plusimglogobgremove.png';
 
 const FacebookIcon = ({ size = 18 }: { size?: number }) => (

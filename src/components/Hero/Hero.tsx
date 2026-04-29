@@ -1,6 +1,5 @@
-import React from 'react';
 import { motion } from 'framer-motion';
-import { MousePointer2, Plus, Star, ArrowUpRight } from 'lucide-react';
+import { Plus, Star, ArrowUpRight } from 'lucide-react';
 import heroImg from '../../assets/hero_ayurveda_family.png';
 import labImg from '../../assets/ayurvedic_lab_tubes.png';
 import bgImg from '../../assets/hero_botanical_bg.png';

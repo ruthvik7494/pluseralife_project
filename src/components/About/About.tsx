@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import visionImg from '../../assets/ayurvedic_mortar_pestle.png';
 import approachImg from '../../assets/ayurvedic_lab_tubes.png';

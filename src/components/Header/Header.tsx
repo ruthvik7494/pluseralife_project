@@ -1,9 +1,9 @@
-import React from 'react';
+import { useState } from 'react';
 import { Menu, X, Phone, Mail } from 'lucide-react';
 import logo from '../../assets/plusimglogobgremove.png';
 
 const Header = () => {
-  const [isOpen, setIsOpen] = React.useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <header className="sticky top-0 z-50 glass">
