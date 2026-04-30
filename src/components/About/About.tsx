@@ -8,13 +8,13 @@ const About = () => {
     {
       title: "Vision & Philosophy",
       subtitle: "About PlusEra Lifesciences Co.",
-      description: "PlusEra Lifesciences Co. was started with the vision of advancing authentic Ayurveda through integrity, knowledge, and responsibility. Inspired by the timeless wisdom of classical Ayurvedic texts, we believe that real healing lies in restoring balance within the body—while respecting the natural intelligence within.",
+      description: "PlusEra Lifescience Co. was started with the vision of advancing authentic Ayurveda through integrity, knowledge, and responsibility. Inspired by the timeless wisdom of classical Ayurvedic texts, we believe that real healing lies in restoring balance within the body—while respecting the natural intelligence within.",
       image: visionImg,
       reverse: false
     },
     {
       title: "Scientific Approach & Manufacturing Standards",
-      description: "Our formulations are developed by combining classical Ayurvedic principles with contemporary scientific standards. Through rigorous raw material assessment, quality control, and adherence to golden manufacturing practices, we ensure that every product reflects the purity of traditional knowledge and the precision of modern healthcare.",
+      description: "Our formulation are developed by combining classical Ayurvedic principles with contemporary scientific standards. Through rigorous raw material assessment, quality control, and adherence to golden manufacturing practices, we ensure that every product reflects the purity of traditional knowledge and the precision of modern healthcare.",
       image: approachImg,
       reverse: true
     },
@@ -34,7 +34,7 @@ const About = () => {
             key={index}
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true, margin: "-100px"  }}
             transition={{ duration: 0.8 }}
             className={`grid grid-cols-1 lg:grid-cols-2 gap-16 items-center ${section.reverse ? 'lg:flex-row-reverse' : ''}`}
           >
