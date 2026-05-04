@@ -1,33 +1,21 @@
+import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header/Header';
-import Hero from './components/Hero/Hero';
-import FeaturedProducts from './components/FeaturedProducts/FeaturedProducts';
-import About from './components/About/About';
-import Values from './components/Values/Values';
-import BrandShowcase from './components/BrandShowcase/BrandShowcase';
-import Domains from './components/Domains/Domains';
-import Sourcing from './components/Sourcing/Sourcing';
-import Banner from './components/Banner/Banner';
-import Contact from './components/Contact/Contact';
 import Footer from './components/Footer/Footer';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
+import ScrollToHash from './components/ScrollToHash';
+import HomePage from './pages/HomePage';
+import AboutPage from './pages/AboutPage';
 
 function App() {
   return (
     <div className="min-h-screen bg-white">
+      <ScrollToHash />
       <Header />
       <main>
-        <BrandShowcase />
-
-        <FeaturedProducts />
-        <Hero />
-        <About />
-        <Domains />
-        <Values />
-
-
-        <Sourcing />
-        <Banner />
-        <Contact />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+        </Routes>
       </main>
       <Footer />
       <ScrollToTop />

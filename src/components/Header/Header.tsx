@@ -1,9 +1,23 @@
 import { useState } from 'react';
 import { Menu, X, Phone, Mail } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
 import logo from '../../assets/plusimglogobgremove.png';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+
+  const isHome = location.pathname === '/';
+
+  const scrollToSection = (id: string) => {
+    setIsOpen(false);
+    if (!isHome) return;
+    
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <header className="sticky top-0 z-50 glass">
@@ -24,18 +38,28 @@ const Header = () => {
       </div>
       <nav className="section-container py-4 flex justify-between items-center">
         <div className="flex items-center">
-          <a href="#home" className="flex items-center">
+          <Link to="/" className="flex items-center">
             <img src={logo} alt="PlusEra Lifesciences" className="h-12 w-auto object-contain" />
-          </a>
+          </Link>
         </div>
         
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-700">
-          <a href="#home" className="hover:text-primary transition-colors">Home</a>
-          <a href="#products" className="hover:text-primary transition-colors">Products</a>
-          <a href="#about" className="hover:text-primary transition-colors">About Us</a>
-          <a href="#contact" className="hover:text-primary transition-colors">Contact</a>
-          <a href="#contact" className="btn-primary py-2 px-4 rounded-full text-sm">Inquiry Now</a>
+          <Link to="/" className="hover:text-primary transition-colors">Home</Link>
+          {isHome ? (
+            <>
+              <a href="#products" onClick={(e) => { e.preventDefault(); scrollToSection('products'); }} className="hover:text-primary transition-colors">Products</a>
+              <Link to="/about" className="hover:text-primary transition-colors">About Us</Link>
+              <a href="#contact" onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }} className="hover:text-primary transition-colors">Contact</a>
+            </>
+          ) : (
+            <>
+              <Link to="/#products" className="hover:text-primary transition-colors">Products</Link>
+              <Link to="/about" className="hover:text-primary transition-colors">About Us</Link>
+              <Link to="/#contact" className="hover:text-primary transition-colors">Contact</Link>
+            </>
+          )}
+          <a href="#contact" onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }} className="btn-primary py-2 px-4 rounded-full text-sm">Inquiry Now</a>
         </div>
 
         {/* Mobile menu button */}
@@ -49,11 +73,21 @@ const Header = () => {
       {/* Mobile Nav */}
       {isOpen && (
         <div className="md:hidden bg-white border-t border-gray-100 py-4 px-6 space-y-4 shadow-lg">
-          <a href="#home" onClick={() => setIsOpen(false)} className="block text-gray-700 hover:text-primary">Home</a>
-          <a href="#products" onClick={() => setIsOpen(false)} className="block text-gray-700 hover:text-primary">Products</a>
-          <a href="#about" onClick={() => setIsOpen(false)} className="block text-gray-700 hover:text-primary">About Us</a>
-          <a href="#contact" onClick={() => setIsOpen(false)} className="block text-gray-700 hover:text-primary">Contact</a>
-          <a href="#contact" onClick={() => setIsOpen(false)} className="w-full btn-primary py-2 rounded-full text-sm text-center block">Inquiry Now</a>
+          <Link to="/" onClick={() => setIsOpen(false)} className="block text-gray-700 hover:text-primary">Home</Link>
+          {isHome ? (
+            <>
+              <a href="#products" onClick={(e) => { e.preventDefault(); scrollToSection('products'); }} className="block text-gray-700 hover:text-primary">Products</a>
+              <Link to="/about" onClick={() => setIsOpen(false)} className="block text-gray-700 hover:text-primary">About Us</Link>
+              <a href="#contact" onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }} className="block text-gray-700 hover:text-primary">Contact</a>
+            </>
+          ) : (
+            <>
+              <Link to="/#products" onClick={() => setIsOpen(false)} className="block text-gray-700 hover:text-primary">Products</Link>
+              <Link to="/about" onClick={() => setIsOpen(false)} className="block text-gray-700 hover:text-primary">About Us</Link>
+              <Link to="/#contact" onClick={() => setIsOpen(false)} className="block text-gray-700 hover:text-primary">Contact</Link>
+            </>
+          )}
+          <a href="#contact" onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }} className="w-full btn-primary py-2 rounded-full text-sm text-center block">Inquiry Now</a>
         </div>
       )}
     </header>
